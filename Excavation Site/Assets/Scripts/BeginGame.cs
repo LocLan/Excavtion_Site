@@ -10,11 +10,14 @@ public class BeginGame : MonoBehaviour
     public GameObject Player;
     public GameObject StartCamera;
     public GameObject GameCamera;
+    [SerializeField] public Transform nextLevelPedestool;
+    public Rigidbody2D body;
     private bool onHole;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        body = GameObject.Find("Player").GetComponent<Rigidbody2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -39,7 +42,7 @@ public class BeginGame : MonoBehaviour
     {
         if(onHole == true)
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.E))
             {
                 StartGame();
             }
@@ -49,18 +52,10 @@ public class BeginGame : MonoBehaviour
     private void StartGame()
     {
         GameUI.SetActive(true);
-        anim.SetBool("FadeTransition", true);
-        WaitFor();
         MainMenuUI.SetActive(false);
-        Player.transform.position = new Vector3(50, -3, 0);
+        Player.transform.position = nextLevelPedestool.transform.position;
+        body.velocity = new Vector2(body.velocity.x, 10);
         StartCamera.SetActive(false);
         GameCamera.SetActive(true);
-        WaitFor();
-        anim.SetBool("FadeTransition", false);
-    }
-
-    private IEnumerator WaitFor()
-    {
-        yield return new WaitForSecond(1);
     }
 }
