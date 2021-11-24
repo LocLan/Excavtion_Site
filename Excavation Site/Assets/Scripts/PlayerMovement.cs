@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D body;
     private Animator anim;
     [SerializeField] private float speed;
+    private float verticalInput;
+    private float horizontalInput;
 
     private void Awake()
     {

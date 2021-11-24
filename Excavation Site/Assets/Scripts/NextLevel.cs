@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class NextLevel : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Animator anim;
+    private BoxCollider2D BoxCollider;
+    public Transform startPedestool;
+    public GameObject Player;
+
+    private void Awake()
     {
-        
+        anim = GetComponent<Animator>();
+        BoxCollider = GetComponent<BoxCollider2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OpenDoor()
     {
-        
+        anim.SetTrigger("Open");
+        BoxCollider.isTrigger = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            Player.transform.position = startPedestool.transform.position;
+        }
     }
 }

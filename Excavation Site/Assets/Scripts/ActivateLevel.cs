@@ -10,7 +10,6 @@ public class ActivateLevel : MonoBehaviour
 
     private void Awake()
     {
-        //make the animations TO GET THE SELECTED ANIMATION MAKE AN ALL WHITE SPRITE AND SIZE IT UP
         anim = GetComponent<Animator>();
     }
 
@@ -38,6 +37,7 @@ public class ActivateLevel : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E))
             {
+                anim.SetTrigger("Pressed");
                 BeginLevel();
             }
         }
@@ -46,8 +46,7 @@ public class ActivateLevel : MonoBehaviour
     private void BeginLevel()
     {
         //Unfreeze enemies
-        anim.SetTrigger("Pressed");
-
+        //Open door
     }
 }
 
