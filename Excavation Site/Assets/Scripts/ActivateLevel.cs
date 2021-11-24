@@ -6,7 +6,9 @@ public class ActivateLevel : MonoBehaviour
 {
     private Animator anim;
     public GameObject LevelDoor;
+    public GameObject Stage;
     private bool onButton;
+    public GameObject[] LevelEnemies;
 
     private void Awake()
     {
@@ -46,7 +48,7 @@ public class ActivateLevel : MonoBehaviour
     private void BeginLevel()
     {
         //Unfreeze enemies
-        //Open door
+        LevelDoor.GetComponent<NextLevel>().OpenDoor();
     }
 }
 

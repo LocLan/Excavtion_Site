@@ -8,6 +8,7 @@ public class NextLevel : MonoBehaviour
     private BoxCollider2D BoxCollider;
     public Transform startPedestool;
     public GameObject Player;
+    public GameObject Stage;
 
     private void Awake()
     {

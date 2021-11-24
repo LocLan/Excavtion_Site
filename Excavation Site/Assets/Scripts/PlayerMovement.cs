@@ -32,4 +32,9 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("runUp", verticalInput > 0);
         anim.SetBool("runDown", verticalInput < 0);
     }
+
+    public void Die()
+    {
+        anim.SetTrigger("Die");
+    }
 }
