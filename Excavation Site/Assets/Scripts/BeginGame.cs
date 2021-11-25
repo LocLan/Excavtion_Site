@@ -10,7 +10,8 @@ public class BeginGame : MonoBehaviour
     public GameObject Player;
     public GameObject StartCamera;
     public GameObject GameCamera;
-    [SerializeField] public Transform nextLevelPedestool;
+    public GameObject FadeIn;
+    public Transform nextLevelPedestool;
     private bool onHole;
 
     private void Awake()
@@ -50,6 +51,8 @@ public class BeginGame : MonoBehaviour
     private void StartGame()
     {
         GameUI.SetActive(true);
+        FadeIn.GetComponent<FadeTrans>().Fade();
+        //yield return new WaitForSeconds(1);
         MainMenuUI.SetActive(false);
         Player.transform.position = nextLevelPedestool.transform.position;
         StartCamera.SetActive(false);

@@ -9,6 +9,7 @@ public class NextLevel : MonoBehaviour
     public Transform startPedestool;
     public GameObject Player;
     public GameObject Stage;
+    public GameObject FadeIn;
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class NextLevel : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
+            FadeIn.GetComponent<FadeTrans>().Fade();
             Player.transform.position = startPedestool.transform.position;
         }
     }
